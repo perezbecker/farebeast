@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block buttons %} 
+<li><a href="/">HOME</a></li> 
+ <li class="dropdown active">
+     <a href="#" data-toggle="dropdown" class="dropdown-toggle">ADD TRIP <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+     {% for user in users %}
+     <li><a href="add_flight?user={{user}}">{{user}}</a></li>
+     {% endfor %}
+    </ul>
+    </li>
+<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">TRIP STATUS <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    {% for user in users %}
+    <li><a href="check_flights?user={{user}}">{{user}}</a></li>
+    {% endfor %}
+</ul>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<div id="r">
+	<div class="container">
+		<div class="row centered">
+			<div class="col-lg-8 col-lg-offset-2">
+			     <h4>{{welcome}} </h4> 
+			<p>Each trip can consist of a maximum of 20 possible travel date combinations</p>
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- r wrap -->
+
+
+  
+	<!-- FLIGHTS TO ADD-->
+	<div id="dg">
+		<div class="container">
+			<div class="align left">
+				<h4>Flights for trip: {{nickname}}</h4>
+				<br>
+				<div class="col-lg-6">
+				    {% for message in messages %}
+                    <h4>{{message}}</h4>
+                    {% endfor %}	
+	
+				</div>
+
+				<div class="col-lg-6">
+                   <br>
+                   <br>
+                   <h4>If these flights fit your schedule, <br> then "Fly Away!". </h4> 
+                   <div class="tilt">
+                   <button type="submit" class="btn" onclick="NavigateToTripAdded()" id="fly">Fly Away!</button>
+				    </div>
+				    <h4>Otherwise, change the flight parameters below <br> and "Try Again".</h4>
+				</div>
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- DG -->
+
+
+
+
+
+
+<div class="container w">
+	<div class="row centered">
+		<br><br>
+		<div class="col-lg-8 col-lg-offset-2">
+			<form class="well form-inline" action="add_verification" method="get">
+            <label>From </label>
+            <input name='PortA' id='PortA' type="text" class="input-small" value="{{portA}}" size="4"> 
+            <label> to </label>
+            <input name='PortB' id='PortB' type="text" class="input-small" value="{{portB}}" size="4">   
+            <label>&nbsp;&nbsp;&nbsp;&nbsp; on </label>
+            <input name='dateA' id="dpd1" type="text" class="input-small" value="{{dateA}}" size="10">
+            <label>+</label>
+            <input name='extraA' id='extraA' type="text" class="input-small" value="{{extraA}}" size="1">
+            <label> to </label>
+            <input name='dateB' id="dpd2" type="text" class="input-small" value="{{dateB}}" size="10">
+            <label>+</label>
+            <input name='extraB' id='extraB' type="text" class="input-small" value="{{extraB}}" size="1">
+            <br>
+            <br>
+            <label>Optional: &nbsp;&nbsp;&nbsp;&nbsp;traveling </label>
+            <input name='min_d' id='min_d' type="text" class="input-small" value="{{min_d}}" size="2">
+            <label> to </label>
+            <input name='max_d' id='max_d' type="text" class="input-small" value="{{max_d}}" size="2">
+            <label> days </label>
+            <input type="hidden" name='active_user' value={{active_user}} size="0">
+            <input type="hidden" name='nickname' value={{nickname}} size="0">
+            <br>
+            <br>
+            <button type="submit" class="btn">Try Again</button>  
+            </form>
+        	</div><!-- col-lg-4 -->
+    	</div><!-- row -->
+    	<br>
+    	<br>
+    </div><!-- container -->
+   
+   
+
+
+
+
+
+
+
+
+{% endblock %}

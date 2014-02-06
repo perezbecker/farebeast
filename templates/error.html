@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block buttons %} 
+<li class="active"><a href="/">HOME</a></li> 
+ <li class="dropdown">
+     <a href="#" data-toggle="dropdown" class="dropdown-toggle">ADD TRIP <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+     {% for user in users %}
+     <li><a href="add_flight?user={{user}}">{{user}}</a></li>
+     {% endfor %}
+    </ul>
+    </li>
+<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">TRIP STATUS <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    {% for user in users %}
+    <li><a href="check_flights?user={{user}}">{{user}}</a></li>
+    {% endfor %}
+</ul>
+</li>
+{% endblock %}
+
+{% block content %}
+<div id="r">
+	<div class="container">
+		<div class="row centered">
+			<div class="col-lg-8 col-lg-offset-2">
+			     <h4>Whooops! Something went wrong.</h4> 
+			     <br>
+			    <h4>Please go back and try again.</h4> 
+			    <br>
+			    <br>
+			    <a href="#"><img class='img-rounded' src="../static/img/error.jpg" width='700' /></a> 
+
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- r wrap -->
+
+
+
+
+{% endblock %}

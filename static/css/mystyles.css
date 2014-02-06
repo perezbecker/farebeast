@@ -1,0 +1,33 @@
+.button-container-div {
+    width: 100px;
+}
+
+.my-special-button {
+    margin-top: 5px !important;
+    height: 30px;
+}
+
+body, div > .my-class {
+    
+}
+
+form#myform .btn-group {
+    width: 100px;
+    
+}
+
+form#myform div.btn-group.bootstrap-select button.btn {
+    height: 30px;
+    margin-top: -6px;
+}
+
+
+form#myform2 .btn-group {
+    width: 65px;
+    
+}
+
+form#myform2 div.btn-group.bootstrap-select button.btn {
+    height: 30px;
+    margin-top: -6px;
+}

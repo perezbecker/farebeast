@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block buttons %} 
+<li><a href="/">HOME</a></li> 
+ <li class="dropdown active">
+     <a href="#" data-toggle="dropdown" class="dropdown-toggle">ADD TRIP <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+     {% for user in users %}
+     <li><a href="add_flight?user={{user}}">{{user}}</a></li>
+     {% endfor %}
+    </ul>
+    </li>
+<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">TRIP STATUS <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    {% for user in users %}
+    <li><a href="check_flights?user={{user}}">{{user}}</a></li>
+    {% endfor %}
+</ul>
+</li>
+{% endblock %}
+ 
+ 
+ 
+{% block content %}
+
+
+
+
+
+
+<div id="r">
+	<div class="container">
+		<div class="row centered">
+			<div class="col-lg-8 col-lg-offset-2">
+				<h4>{{welcome}} </h4>
+			<p>Each trip can consist of a maximum of 20 possible travel date combinations</p>
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- r wrap -->
+
+
+
+
+<div class="container w">
+	<div class="row centered">
+		<br><br>
+		<div class="col-lg-8 col-lg-offset-2">
+			<form id="myform2" class="well form-inline" action="add_verification" method="get">  
+                          
+                
+                          <div style="float:left"> <label>From &nbsp;&nbsp;</label> </div>
+                          <div class='example-countries' style="float:left">
+                              <span class="twitter-typeahead">
+                                  <input class="typeahead tt-query" type="text" placeholder="&nbsp; PAR - Paris, France" autocomplete="off" spellcheck="false" dir="auto" name='PortA' id='PortA'> </span> </div>
+                          
+                          <div style="float:right">
+                              <label>Optional:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                          </div>
+                          
+                          <br>
+                          <br>
+                          
+                          
+                          
+                          <div style="float:left"> <label>to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label> </div>
+                          <div class='example-countries' style="float:left">
+                               <span class="twitter-typeahead">
+                                   <input class="typeahead tt-query" type="text" placeholder="&nbsp; HKG - Hong Kong, Hong Kong" autocomplete="off" spellcheck="false" dir="auto" name='PortB' id='PortB'> </span>
+                               </div>
+                        
+                            <script>
+            	                $('.example-countries .typeahead').typeahead({
+            	                  prefetch: '../static/data/airports.json',
+            	                  limit: 10
+            	                });
+            	            </script>
+                           
+                           
+                            <div style="float:right">
+                             <label> Traveling &nbsp;</label>
+                             <input name='min_d' id='min_d' type="number" class="input-small" placeholder="min" style="width:55px;">
+                             <label> to </label>
+                             <input name='max_d' id='max_d' type="number" class="input-small" placeholder="max" style="width:55px;">
+                             <label> days &nbsp;&nbsp;&nbsp;</label>
+                             <input type="hidden" name='active_user' value={{active_user}} size="0">
+                            </div>
+                           
+                               
+                         
+                          <br>
+                          <br>
+                          
+                          <div style="float:left">
+                            <label> on </label>
+                              <input name='dateA' id="dpd1" type="text" class="input-small" placeholder="mm/dd/yyyy" size="10">
+                              <!-- <input name='extraA' id='extraA' type="text" class="input-small" placeholder="+3" size="2"> -->
+                              <select name="extraA" class="selectpicker">
+                                  <option value="0">+0</option>
+                                  <option value="1">+1</option>
+                                  <option value="2">+2</option>
+                                  <option value="3">+3</option>
+                                  <option value="4">+4</option>
+                                  <option selected="selected" value="5">+5</option>
+                                  <option value="6">+6</option>
+                                  <option value="7">+7</option>
+                                  <option value="8">+8</option>
+                                  <option value="9">+9</option>
+                                  <option value="10">+10</option>
+                                  <option value="11">+11</option>
+                                  <option value="12">+12</option>
+                                  <option value="13">+13</option>
+                                  <option value="14">+14</option>
+                                  <option value="15">+15</option>
+                                  <option value="16">+16</option>
+                                  <option value="17">+17</option>
+                                  <option value="18">+18</option>
+                                  <option value="19">+19</option>
+                                  <option value="20">+20</option>
+
+                              </select>
+
+                              <label> to </label>
+                              <input name='dateB' id="dpd2" type="text" class="input-small" placeholder="mm/dd/yyyy" size="10">
+                              <!-- <input name='extraB' id='extraB' type="text" class="input-small" placeholder="+3" size="2"> -->
+                              <select name="extraB" class="selectpicker">
+                                  <option value="0">+0</option>
+                                  <option value="1">+1</option>
+                                  <option value="2">+2</option>
+                                  <option value="3">+3</option>
+                                  <option value="4">+4</option>
+                                  <option selected="selected" value="5">+5</option>
+                                  <option value="6">+6</option>
+                                  <option value="7">+7</option>
+                                  <option value="8">+8</option>
+                                  <option value="9">+9</option>
+                                  <option value="10">+10</option>
+                                  <option value="11">+11</option>
+                                  <option value="12">+12</option>
+                                  <option value="13">+13</option>
+                                  <option value="14">+14</option>
+                                  <option value="15">+15</option>
+                                  <option value="16">+16</option>
+                                  <option value="17">+17</option>
+                                  <option value="18">+18</option>
+                                  <option value="19">+19</option>
+                                  <option value="20">+20</option>
+
+                              </select>
+                              </div>
+                          
+                          
+                          
+                         <div style="float:right">
+                          <label> Trip Nickname: &nbsp;</label>
+                          <input name='nickname' id='nickname' type="text" class="input-small" placeholder="Summer Holidays" size="15">  
+                        </div>     
+                         
+                         
+                         <br>
+                         <br>
+                          <button type="submit" class="btn">Generate Flights</button>  
+                        </form>
+                        
+                        <script>
+                            $('.selectpicker').selectpicker();
+                        </script>
+                        
+		</div><!-- col-lg-4 -->
+	</div><!-- row -->
+	<br>
+	<br>
+</div><!-- container -->
+
+
+
+
+
+
+
+
+  
+		
+		
+		
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block buttons %} 
+<li><a href="/">HOME</a></li> 
+ <li class="dropdown">
+     <a href="#" data-toggle="dropdown" class="dropdown-toggle">ADD TRIP <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+     {% for user in users %}
+     <li><a href="add_flight?user={{user}}">{{user}}</a></li>
+     {% endfor %}
+    </ul>
+    </li>
+<li class="dropdown active">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">TRIP STATUS <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    {% for user in users %}
+    <li><a href="check_flights?user={{user}}">{{user}}</a></li>
+    {% endfor %}
+</ul>
+</li>
+{% endblock %}
+
+
+{% block content %}
+
+<div id="r">
+	<div class="container">
+		<div class="row centered">
+			<div class="col-lg-8 col-lg-offset-2">
+			     <h4>{{user_approval}} </h4> 
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- r wrap -->
+
+
+
+
+
+
+{% for trip in trips %}
+
+
+<div class="container w">
+	<div class="row centered">
+		<br><br>
+		<div class="col-lg-4">
+		<h4>{{trip[6]}}</h4><i class="fa fa-plane"></i>
+			<h4>{{trip[4]}} to {{trip[5]}} in {{trip[12]}} days</h4>
+			
+			<p>days since last alert: {{trip[9]}}
+			<br> fare of last alert: ${{trip[8]}}
+			<br> avg fare of last week: ${{trip[10]}}
+			<br> min fare of last week: ${{trip[11]}}</p>
+		    
+
+        <a class="btn" href="{{trip[0]}}"> <i class="fa fa-dollar"></i><span class="money">{{trip[7]}}</span></a>
+       
+		</div><!-- col-lg-4 -->
+
+		<div class="col-lg-4">
+		    <a href="#"><img class='img-rounded' src="../static/plots/{{trip[1]}}" onmouseover="this.src='../static/plots/{{trip[2]}}'" onmouseout="this.src='../static/plots/{{trip[3]}}'" width='700' /></a> 
+            <!-- <a href="#"><img src="../static/plots/{{pic1}}" onmouseover="this.src='../static/plots/{{pic2}}'" onmouseout="this.src='../static/plots/{{pic3}}'" width='700' /></a> -->
+            
+		</div><!-- col-lg-4 -->
+
+	</div><!-- row -->
+	<br>
+	<br>
+</div><!-- container -->
+
+
+{% endfor %}
+
+{% for embryo in embryos %}
+
+<div class="container w">
+	<div class="row centered">
+		<br><br>
+		<div class="col-lg-4">
+		<h4>{{embryo[0]}}</h4><i class="fa fa-plane"></i>
+			<h4>{{embryo[1]}} to {{embryo[2]}}</h4>
+			
+</div><!-- col-lg-4 -->
+	
+	<div class="col-lg-4">
+	    <h3>Gathering fare information...</h3>
+        <p>This process can take up to 2 hours</p>
+	</div><!-- col-lg-4 -->
+	
+	
+
+	
+	
+	
+	
+	</div><!-- row -->
+	<br>
+	<br>
+</div><!-- container -->
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+      

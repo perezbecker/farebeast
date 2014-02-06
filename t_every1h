@@ -1,0 +1,5 @@
+/usr/bin/python /home/ubuntu/farebeast8-aws/farebeast_scrape2-aws.py
+/home/ubuntu/farebeast8-aws/fb-backup
+/usr/bin/python /home/ubuntu/farebeast8-aws/db_airalert.py
+/usr/bin/python /home/ubuntu/farebeast8-aws/db_airplot2.py
+/usr/bin/python /home/ubuntu/farebeast8-aws/db_airmail.py

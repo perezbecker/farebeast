@@ -1,0 +1,6 @@
+#! /bin/bash
+
+_now=$(date +%y-%m-%d_%H-%M)
+_file="/home/ubuntu/db_backup/farebeast_$_now.sql"
+
+/usr/bin/mysqldump -uroot farebeast > "$_file"

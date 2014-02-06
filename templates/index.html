@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block buttons %} 
+<li class="active"><a href="/">HOME</a></li> 
+ <li class="dropdown">
+     <a href="#" data-toggle="dropdown" class="dropdown-toggle">ADD TRIP <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+     {% for user in users %}
+     <li><a href="add_flight?user={{user}}">{{user}}</a></li>
+     {% endfor %}
+ </ul>
+ </li>
+<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">TRIP STATUS <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    {% for user in users %}
+    <li><a href="check_flights?user={{user}}">{{user}}</a></li>
+    {% endfor %}
+    <!-- <li><a href="check_flights?user=Allen">Allen</a></li>
+        <li><a href="#">Daniel</a></li>
+        <li><a href="#">Javiera</a></li> -->
+    <!-- <li class="divider"></li>
+    <li><a href="#">Trash</a></li> -->
+</ul>
+</li>
+ 
+ 
+ 
+ {% endblock %}
+ 
+ 
+{% block content %}
+
+
+
+	<br>
+	
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+				<h1>Fare<b>Beast</b></h1>
+				<h2>on the prowl for the lowest airfares</h2>
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- headerwrap -->
+
+
+
+
+	<div class="container w">
+		<div class="row centered">
+			<br><br>
+			<div class="col-lg-4">
+				<i class="fa fa-pencil-square-o"></i>
+				<h4>SIGN UP</h4>
+				<p>Farebeast monitors your flights and alerts you on optimal purchasing times. Sign up by entering your name and email in the fields bellow. If you would like to receive fare alerts via SMS, you can also include your mobile number and carrier. That's it! You are now ready to add trips.</p>
+			</div><!-- col-lg-4 -->
+
+			<div class="col-lg-4">
+				<i class="fa fa-calendar"></i>
+				<h4>ADD TRIPS</h4>
+				<p>Select your name from the "ADD TRIP" tab and enter your flight information. Each trip can consist of up to 20 different flight-date combinations. FareBeast will search all date combinations and alerts will be made only on the cheapest flight-dates (so make sure that all flights fit your schedule). You can review date combinations and make adjustments before submitting your trip.</p>
+			</div><!-- col-lg-4 -->
+
+			<div class="col-lg-4">
+				<i class="fa fa-bell-o"></i>
+				<h4>RECEIVE ALERTS</h4>
+				<p>FareBeast is constantly on the prowl for best airfares. As soon as it spots a good deal, it will send you an email/SMS alert, so you can go for the kill! Alternatively, you can always check out the "TRIP STATUS" tab for detailed fare-histories. You can see the individual fare-histories of all flight-dates considered for your trip by mousing over the plot.</p>
+			</div><!-- col-lg-4 -->
+		</div><!-- row -->
+		<br>
+		<br>
+	</div><!-- container -->
+
+
+
+
+    <div class="container w">
+    	<div class="row centered">
+    		<br><br>
+    		<div class="col-lg-8 col-lg-offset-2">
+    			<form id="myform" class="well form-inline" action="join_now" method="get">  
+                              <label>First time users: </label>
+                              <input name='username' id='username' type="text" class="input-small" placeholder="Name" size="10"> 
+                              <input name='email' id='email' type="text" class="input-small" placeholder="example@gmail.com" size="20">   
+                               <br>
+                               <div style="float:right">
+                               <button type="submit" class="btn">Join Now!</button> 
+                              </div>
+                              <br>
+                              <label>Receive SMS alerts (Optional): </label>
+                              <input name='mobile' id="mobile" type="text" class="input-small" placeholder="5102543456" size="10">
+                       
+                              <select name="carrier" id="something" class="selectpicker" style="width:200px">
+                                  
+                                    <option selected="selected" value="att">AT&T</option>
+                                    <option value="verizon">Verizon</option>
+                                    <option value="sprint">Sprint</option>
+                                    <option value="tmobile">T-Mobile</option>
+                                    <option value="virgin">Virgin</option>
+                                    <option value="cricket">Cricket</option>
+                                    <option value="boost">Boost</option>
+
+                                </select>
+                              
+                            </form>
+                            <script>
+                                $('.selectpicker').selectpicker();
+                            </script>
+                            
+    		</div><!-- col-lg-4 -->
+    	</div><!-- row -->
+    	<br>
+    	<br>
+    </div><!-- container -->
+
+
+
+
+
+{% endblock %}
