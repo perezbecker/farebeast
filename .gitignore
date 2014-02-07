@@ -1,0 +1,9 @@
+.DS_Store
+static/.DS_Store
+static/css/.DS_Store
+static/data/.DS_Store
+static/fonts/.DS_Store
+static/img/.DS_Store
+static/js/.DS_Store
+static/plots/.DS_Store
+templates/.DS_Store
