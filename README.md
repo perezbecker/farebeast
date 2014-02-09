@@ -26,7 +26,7 @@ Source files for the interactive front-end using Flask and Twitter Bootstrap are
 - `farebeast_functions.py`: Contains functions common to many components.
 - `farebeast_scrape.py`: Scrapes flight aggregators for fares. Calls `get_expedia.py` and `jw_bing.py`.
 - `fb-backup`: Creates backups of FareBeast MySQL database, which are transferred to a safe location.
-- `frontend.py`: Flask webapp.
+- `frontend.py`: Flask web framework.
 - `get_expedia.py`: Auxiliary file for scraping Expedia.
 - `gmailbeast.py`: Auxiliary file for sending alerts via gmail.com.
 - `jw_bing.py`: Auxiliary file for scraping Bing/KAYAK.
