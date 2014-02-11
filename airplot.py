@@ -2,7 +2,7 @@
 
 import matplotlib
 matplotlib.use('agg')
-
+#agg does not require access to GUI
 
 import string
 import sys
