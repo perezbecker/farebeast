@@ -12,7 +12,7 @@ import smsgmailbeast
 import os
 import farebeast_functions as fbf
 
-
+#Only used for testing
 
 home='/home/ubuntu/farebeast8-aws'
 #home='/Users/danok/airfare_monitor/farebeast8-aws'
